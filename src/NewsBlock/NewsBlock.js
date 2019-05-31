@@ -4,7 +4,6 @@ import BtnText from '../BtnText/btnText';
 
 const NewsBlock = (props) => {
     return (
-        <article className='col-12 col-sm-6 col-md-4 col-lg-3'>
             <div className="card" style={{backgroundColor: props.news.color}}>
                 <div className="card-body">
                     <h5 className="card-title">{props.news.title}</h5>
@@ -15,7 +14,6 @@ const NewsBlock = (props) => {
                     </footer>
                 </div>
             </div>
-        </article>
     )
 };
 
