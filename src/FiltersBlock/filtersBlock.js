@@ -34,14 +34,6 @@ class FiltersBlock extends React.Component {
     }
 
 
-    handleClick() {
-        this.setState(
-            this.news = this.newsArray.filter(item => item.status === true)
-        );
-        this.props = this.favoriteNews;
-        console.log(this.props);
-    }
-
     render() {
         return (
             <section>

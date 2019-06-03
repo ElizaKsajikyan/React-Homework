@@ -6,7 +6,7 @@ import ArticlesSection from './ArticlesSection/articlesSection';
 
 class App extends React.Component {
     state = {
-        articles:[
+        articles: [
             {
                 'id': 1,
                 'title': 'Card title 1',
@@ -38,20 +38,25 @@ class App extends React.Component {
         ]
     };
 
-    constructor() {
-        super();
-        this.news = this.state.articles;
+    filterFavoriteArticles() {
+        this.setState(({articles}) => {
+
+            const data = articles;
+            this.data = data.filter(item => item.status === true);
+
+            return {
+                articles: this.data
+            }
+        })
+
     }
-filterFavoriteArticles(){
-    this.setState(
-        this.news = this.state.articles.filter(item => item.status===true)
-    );
-}
+
     render() {
+        console.log(this.state.articles);
         return (
             <section className='container py-5'>
-                <FiltersBlock  action={() => this.filterFavoriteArticles()}/>
-                <ArticlesSection news={this.news}/>
+                <FiltersBlock action={() => this.filterFavoriteArticles()}/>
+                <ArticlesSection news={this.state.articles}/>
                 <CreateNewArticle/>
             </section>
         );
