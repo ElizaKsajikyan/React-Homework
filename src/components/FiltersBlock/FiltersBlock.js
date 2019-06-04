@@ -1,7 +1,8 @@
 import React from 'react';
-import InputFild from './../InputFild/inputFild';
-import BtnText from './../BtnText/btnText';
-import SectionsTitle from './../SectionsTitle/sectionsTitle';
+import './FiltersBlock.css'
+import InputFild from './../InputFild';
+import Button from './../Button';
+import SectionsTitle from './../SectionsTitle';
 
 class FiltersBlock extends React.Component {
     state = {
@@ -26,13 +27,6 @@ class FiltersBlock extends React.Component {
             'placeholder': 'Search...'
         }
     };
-    newsArray = this.props.news;
-    favoriteNews = [];
-
-    constructor(props) {
-        super(props);
-    }
-
 
     render() {
         return (
@@ -41,18 +35,26 @@ class FiltersBlock extends React.Component {
                 <form action="" className='w-100 d-flex flex-wrap mb-5'>
                     <div className={'form-group col-12 col-md-7'}>
                         <InputFild
-                            attributs={this.state.search}/>
+                            attributs={this.state.search}
+                            myClick={(e) => {
+                                this.props.filterSearch(e.target.value);
+                            }}/>
                     </div>
                     <div className={'form-group col-12 col-md-5'}>
-                        <BtnText
+                        <Button
                             myClick={(e) => {
-                                this.props.action(e)
-                                //  this.handleClick(e)
+                                this.props.filterBtn(true)
                             }}
                             attributs={this.state.favorites}/>
-                        <BtnText
+                        <Button
+                            myClick={(e) => {
+                                this.props.filterBtn(false)
+                            }}
                             attributs={this.state.new}/>
-                        <BtnText
+                        <Button
+                            myClick={(e) => {
+                                this.props.filterBtn()
+                            }}
                             attributs={this.state.all}/>
                     </div>
                 </form>

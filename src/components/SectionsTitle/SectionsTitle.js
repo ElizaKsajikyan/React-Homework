@@ -1,4 +1,5 @@
 import React from 'react';
+import './SectionsTitle.css'
 
 const SectionsTitle=(props)=>{
     return(
